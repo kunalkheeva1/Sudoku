@@ -21,8 +21,16 @@ public class Sudoku {
                 return true;
             }
         }return  false;                             //else it is false
+    }
 
-
+    // will be repeating the same thing for the column
+    public static boolean isNumberInColumn(int[][]board, int number , int column){
+        //running a loop in given column wrt rows to find the number
+        for(int i=0; i<SIZE_OF_GRID; i++){
+            if(board[i][column]== number){              //if the given space matches the position then its true
+                return true;
+            }
+        }return false;                                  //else false
     }
 
     public static void main(String[] args) {
