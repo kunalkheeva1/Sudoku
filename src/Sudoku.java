@@ -1,3 +1,5 @@
+import jdk.swing.interop.SwingInterOpUtils;
+
 import javax.swing.*;
 
 public class Sudoku {
@@ -16,20 +18,27 @@ public class Sudoku {
                 {0, 0, 0, 0, 0, 0, 0, 1, 0},
                 {0, 0, 0, 0, 8, 1, 0, 0, 0}};
         printBoard(board);
-
+        if(solveBoard(board)){
+            System.out.println();
+            System.out.println("Solved Successfully :)");
+            System.out.println();
+        }else{
+            System.out.println("Not Solved :(");
+        }
+        printBoard(board);
     }
 
     //creating a method to print board
     public static void printBoard(int[][]board){
         for(int row=0; row<SIZE_OF_GRID; row++){
             if(row%3==0&& row!=0){
-                System.out.println("_________________");    //just providing a lines after three upper grids
+                System.out.println("------------------------");    //just providing a lines after three upper grids
             }
             for (int column=0; column<SIZE_OF_GRID; column++){
-                if(column%3==0 && column!=0){
-                    System.out.println(" | ");              //after three columns printing this line for clarity
+                if(column % 3==0 && column != 0){
+                    System.out.print(" | ");//after three columns printing this line for clarity
                 }
-                System.out.print(board[row][column]+ " ");
+                System.out.print(board[row][column] +" ");
             }
             System.out.println();
         }
