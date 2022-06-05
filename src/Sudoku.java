@@ -33,6 +33,23 @@ public class Sudoku {
         }return false;                                  //else false
     }
 
+    //now creating a method to confirm if the number is in the grid itself
+    public static boolean isNumberInBox(int[][]board,int row, int column, int number){
+        //getting the local row
+        int localRow = row - row%3;
+        //getting local column
+        int localColumn = column -column%3;
+
+        //now getting a nested loop to iterate through the given box
+        for(int i=localRow; i<localRow+3; i++){
+            for(int j=localColumn; j<localColumn+3; j++){           //+3 so that it can iterate through whole box
+                if(board[row][column]==number){
+                    return true;                                    //and if condition meets return true
+                }
+            }
+        }return false;                                              //otherwise false
+    }
+
     public static void main(String[] args) {
 
     }
