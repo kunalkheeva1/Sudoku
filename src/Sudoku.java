@@ -15,6 +15,13 @@ public class Sudoku {
     //creating a method to search in the row
     public static boolean isNumberInRow(int [][]board, int number, int row){
 
+        // I will just create a loop for it so that i can iterate through it wrt given row
+        for(int i =0; i<SIZE_OF_GRID; i++){
+            if(board[row][i]==number){              //if my given row contains that number then it will be true
+                return true;
+            }
+        }return  false;                             //else it is false
+
 
     }
 
