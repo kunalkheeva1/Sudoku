@@ -57,6 +57,29 @@ public class Sudoku {
                 !isNumberInColumn(board, number, column);               //if all of them are false then it is a valid spot, but i need more clarity here
     }
 
+    //creating a method to find the position on the board for the element
+    public static boolean solveBoard(int[][]board){
+        for(int row=0; row<SIZE_OF_GRID; row++){                  //looping thru the rows of the grid
+            for(int column=0; column<SIZE_OF_GRID; column++){     //looping thru the columns of the grid
+                if(board[row][column]==0){
+                    //but just in case if board number is zero then another loop to try number between 1 and 9
+                    for(int numberToTry=1; numberToTry<=SIZE_OF_GRID;numberToTry++){
+                        if(isValidPlacement(board, row, column, numberToTry)){          //and then if number is valid
+                        board[row][column]=numberToTry;                                 //assign the number to board
+                        if(solveBoard(board)){                                          //and recursively call solveBaord method
+                            return true;                                                //if it returns true then ok
+                        }else{                                                          //otherwise assign the 0 value and back to the loop
+                            board[row][column]=0;
+                        }
+                    }
+                }
+                    return false;           //if the number from 1-9 is not a valid entry
+            }
+        }
+    }return true;                           //overall return true
+
+    }
+
     public static void main(String[] args) {
 
     }
