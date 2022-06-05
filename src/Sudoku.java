@@ -50,6 +50,13 @@ public class Sudoku {
         }return false;                                              //otherwise false
     }
 
+    //now creating a method in which i can apply all the above three conditions
+    public static boolean isValidPlacement(int board[][], int row, int column, int number){
+        return !isNumberInBox(board, row, column, number) &&
+                !isNumberInRow(board, number, row) &&
+                !isNumberInColumn(board, number, column);               //if all of them are false then it is a valid spot, but i need more clarity here
+    }
+
     public static void main(String[] args) {
 
     }
